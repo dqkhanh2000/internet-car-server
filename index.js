@@ -9,8 +9,10 @@ app.get('/receive', (req, res) => {
     res.sendFile(__dirname + '/public/receive.html');
 });
 
-http.listen(80, () => {
-  console.log('listening on 80');
+const PORT = process.env.PORT || 80;
+app.listen(PORT, err => {
+    if(err) throw err;
+    console.log("%c Server running:" , "color: green");
 });
 
 var mangRom = [], mangUser = [];
