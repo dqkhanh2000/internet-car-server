@@ -12,7 +12,7 @@ app.get('/receive', (req, res) => {
 const PORT = process.env.PORT || 80;
 app.listen(PORT, err => {
     if(err) throw err;
-    console.log("%c Server running:" , "color: green");
+    console.log("Server running: "+PORT );
 });
 
 var mangRom = [], mangUser = [];
