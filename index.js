@@ -9,7 +9,7 @@ app.get('/receive', (req, res) => {
     res.sendFile(__dirname + '/public/receive.html');
 });
 
-const PORT = process.env.PORT || 80;
+const PORT = 3000;
 app.listen(PORT, err => {
     if(err) throw err;
     console.log("Server running: "+PORT );
