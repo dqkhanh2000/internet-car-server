@@ -9,7 +9,7 @@ app.get('/receive', (req, res) => {
     res.sendFile(__dirname + '/public/receive.html');
 });
 
-http.listen(8000, () => {
+http.listen(80, () => {
   console.log('listening on 80');
 });
 
