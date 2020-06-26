@@ -2,7 +2,7 @@ const socket = io()
 let isFirst = true
 const configuration = {
     configuration: {
-        offerToReceiveAudio: true,
+        offerToReceiveAudio: false,
         offerToReceiveVideo: true
     },
     iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
