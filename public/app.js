@@ -1,4 +1,5 @@
 const socket = io()
+let isFirst = true
 const configuration = {
     configuration: {
         offerToReceiveAudio: false,
@@ -66,12 +67,6 @@ async function call(){
     peerConnection.addEventListener('track', e => {remoteVideo.srcObject = e.streams[0]})
     peerConnection.setLocalDescription(offer)
     
-    peerConnection.onicecandidate = function (event) {
-        if (event.candidate) {
-            socket.emit('rtc', { "type": "candidate", "data": event.candidate })
-        }
-    }
-    
 }
 
 async function handleOffer(offer) {
@@ -92,8 +87,22 @@ async function handleOffer(offer) {
 
 function handleAnswer(answer) { 
     peerConnection.setRemoteDescription(new RTCSessionDescription(answer))
+    peerConnection.onicecandidate = function (event) {
+        if (event.candidate) {
+            socket.emit('rtc', { "type": "candidate", "data": event.candidate })
+        }
+    }
+    if(isFirst){
+        call()
+        isFirst = false
+    }
 }
 
 function handleCandidate(candidate) { 
-    peerConnection.addIceCandidate(candidate);
+    if(peerConnection && peerConnection.remoteDescription.type)
+        if(candidate)
+            if(candidate.sdpMid !== "0"){
+                peerConnection.addIceCandidate(candidate)
+                candidates = candidate
+            }
  }
