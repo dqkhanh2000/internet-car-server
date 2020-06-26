@@ -99,8 +99,5 @@ function handleAnswer(answer) {
 function handleCandidate(candidate) { 
     if(peerConnection && peerConnection.remoteDescription.type)
         if(candidate)
-            if(candidate.sdpMid !== "0"){
-                peerConnection.addIceCandidate(candidate)
-                candidates = candidate
-            }
+        peerConnection.addIceCandidate(new RTCIceCandidate(candidate))
  }
