@@ -12,7 +12,7 @@ app.get('/receive', (req, res) => {
     res.sendFile(__dirname + '/public/receive.html');
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 http.listen(PORT, err => {
     if (err) throw err;
     console.log("Server running: " + PORT);
