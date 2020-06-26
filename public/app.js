@@ -2,7 +2,7 @@ const socket = io()
 let isFirst = true
 const configuration = {
     configuration: {
-        offerToReceiveAudio: true,
+        offerToReceiveAudio: false,
         offerToReceiveVideo: true
     },
     iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
@@ -14,7 +14,7 @@ const constraints = {
         "width": 640,
         "height": 480
     },
-    'audio': true
+    'audio': false
 }
 const peerConnection = new RTCPeerConnection(configuration)
 let localStream = null
