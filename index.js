@@ -14,7 +14,7 @@ app.get('/receive', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 http.listen(PORT, err => {
-    if (err) throw err;
+    if (err) console.log("ERROR: "+err)
     console.log("Server running: " + PORT);
 });
 
