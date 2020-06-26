@@ -69,20 +69,18 @@ async function call(){
     
 }
 
-async function handleOffer(offer) {
-    peerConnection.addEventListener('track', e => {remoteVideo.srcObject = e.streams[0]})
-   
+async function handleOffer(offer) {   
+    await peerConnection.setRemoteDescription(new RTCSessionDescription(offer))
     localStream = await navigator.mediaDevices.getUserMedia(constraints)   
     localVideo.srcObject = localStream
     localStream.getTracks().forEach(track => {
         peerConnection.addTrack(track, localStream)
     })
-
-    await peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
+    
     let answer = await peerConnection.createAnswer()
     peerConnection.setLocalDescription(answer);
     socket.emit('rtc', { "type": "answer", "data": answer })
-    
+    peerConnection.addEventListener('track', e => {remoteVideo.srcObject = e.streams[0]})
 }
 
 function handleAnswer(answer) { 
