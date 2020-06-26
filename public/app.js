@@ -24,7 +24,7 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
 $("#name").val(parseInt(Math.random()*100000))
 socket.emit("name", { "name": $("#name").val() })
 $("#call-button").click(()=>{
-    console.log(location.hash)
+    checkPermission()
     if(location.hash === "#1") {
         call()
     }
@@ -105,4 +105,22 @@ function handleCandidate(candidate) {
                 peerConnection.addIceCandidate(candidate)
                 candidates = candidate
             }
+ }
+
+ function checkPermission(){
+    navigator.permissions.query({name: 'microphone'})
+    .then((permissionObj) => {
+     console.log(permissionObj.state);
+    })
+    .catch((error) => {
+     console.log('Got error :', error);
+    })
+   
+    navigator.permissions.query({name: 'camera'})
+    .then((permissionObj) => {
+     console.log(permissionObj.state);
+    })
+    .catch((error) => {
+     console.log('Got error :', error);
+    })
  }
