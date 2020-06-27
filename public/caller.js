@@ -7,8 +7,8 @@ const configuration = {
     },
     iceServers: [{ urls: 'stun:stun.l.google.com:19302' }, {
         'urls': 'turn:numb.viagenie.ca',
-        'credential': 'nwSFmUAgXFUx8V',
-        'username': 'dqkhanh.2k@gmail.com'
+        'credential': 'khanh1920',
+        'username': 'reycs2000@gmail.com'
     }]
 }
 const remoteVideo = document.getElementById("remote-video")
