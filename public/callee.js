@@ -6,8 +6,8 @@ const configuration = {
     },
     iceServers: [{ urls: 'stun:stun.l.google.com:19302' }, {
         'urls': 'turn:numb.viagenie.ca',
-        'credential': 'n@wSFmUAgXFUx8V',
-        'username': 'reycs2000@gmail.com'
+        'credential': 'nwSFmUAgXFUx8V',
+        'username': 'dqkhanh.2k@gmail.com'
     }]
 }
 const constraints = {
