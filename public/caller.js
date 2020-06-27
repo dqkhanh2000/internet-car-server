@@ -58,7 +58,6 @@ function handleAnswer(answer) {
     peerConnection.setRemoteDescription(new RTCSessionDescription(answer))
     peerConnection.onicecandidate = function (event) {
         if (event.candidate) {
-            console.log(event)
             socket.emit('rtc', { "type": "candidate", "data": event.candidate })
         }
     }
