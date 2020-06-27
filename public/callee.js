@@ -1,34 +1,24 @@
 const socket = io()
-let isFirst = true
 const configuration = {
     configuration: {
-        offerToReceiveAudio: false,
+        offerToReceiveAudio: true,
         offerToReceiveVideo: true
     },
     iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
 }
-const localVideo = document.getElementById("local-video")
-const remoteVideo = document.getElementById("remote-video")
 const constraints = {
     'video': {
         "width": 640,
         "height": 480
     },
-    'audio': false
+    'audio': true
 }
 const peerConnection = new RTCPeerConnection(configuration)
 let localStream = null
 let remoteStream = null
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia
 
-$("#name").val(parseInt(Math.random()*100000))
-socket.emit("name", { "name": $("#name").val() })
-$("#call-button").click(()=>{
-    console.log(location.hash)
-    if(location.hash === "#1") {
-        call()
-    }
-})
+socket.emit("name", { "name": "callee" })
 
 socket.on('rtc', (data) => {
     switch (data.type) {
@@ -58,7 +48,7 @@ socket.on('rtc', (data) => {
 async function call(){
 
     localStream = await navigator.mediaDevices.getUserMedia(constraints)
-    localVideo.srcObject = localStream
+    // localVideo.srcObject = localStream
     localStream.getTracks().forEach(track => {
         peerConnection.addTrack(track, localStream)
     })
