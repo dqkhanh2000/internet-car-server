@@ -50,10 +50,11 @@ async function handleOffer(offer) {
     let answer = await peerConnection.createAnswer()
     peerConnection.setLocalDescription(answer);
     socket.emit('rtc', { "type": "answer", "data": answer })
+    // peerConnection.addEventListener('track', e => {remoteVideo.srcObject = e.streams[0]})
 }
 
 function handleCandidate(candidate) { 
     if(peerConnection && peerConnection.remoteDescription.type)
         if(candidate)
-        peerConnection.addIceCandidate(new RTCIceCandidate(candidate))
+            peerConnection.addIceCandidate(new RTCIceCandidate(candidate))
  }

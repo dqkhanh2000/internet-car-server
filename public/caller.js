@@ -45,7 +45,10 @@ async function call(){
     })
     let offer = await peerConnection.createOffer() 
     socket.emit("rtc", { "type": "offer", "data": offer })
-    peerConnection.addEventListener('track', e => {remoteVideo.srcObject = e.streams[0]})
+    peerConnection.addEventListener('track', e => {
+        remoteVideo.srcObject = e.streams[0]
+        console.log(e)
+    })
     peerConnection.setLocalDescription(offer)
     
 }
@@ -55,6 +58,7 @@ function handleAnswer(answer) {
     peerConnection.setRemoteDescription(new RTCSessionDescription(answer))
     peerConnection.onicecandidate = function (event) {
         if (event.candidate) {
+            console.log(event)
             socket.emit('rtc', { "type": "candidate", "data": event.candidate })
         }
     }
@@ -62,12 +66,6 @@ function handleAnswer(answer) {
         call()
         isFirst = false
     }
-}
-
-function stopBothVideoAndAudio(stream) {
-    stream.getTracks().forEach(function(track) {
-        track.stop()
-    })
 }
 
 call()
