@@ -47,7 +47,7 @@ async function call(){
     socket.emit("rtc", { "type": "offer", "data": offer })
     peerConnection.addEventListener('track', e => {
         remoteVideo.srcObject = e.streams[0]
-        console.log(e.streams[0])
+        remoteStream = e.streams[0]
     })
     peerConnection.setLocalDescription(offer)
     
