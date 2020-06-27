@@ -5,11 +5,11 @@ var http = require('http').createServer(app);
 var io = require('socket.io').listen(http);
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+app.get('/caller', (req, res) => {
+    res.sendFile(__dirname + '/public/caller.html');
 });
-app.get('/receive', (req, res) => {
-    res.sendFile(__dirname + '/public/receive.html');
+app.get('/callee', (req, res) => {
+    res.sendFile(__dirname + '/public/callee.html');
 });
 
 const PORT = process.env.PORT || 3000;
