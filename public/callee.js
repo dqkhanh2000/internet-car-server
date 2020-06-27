@@ -70,7 +70,7 @@ async function handleOffer(offer) {
     let answer = await peerConnection.createAnswer()
     peerConnection.setLocalDescription(answer);
     socket.emit('rtc', { "type": "answer", "data": answer })
-    peerConnection.addEventListener('track', e => {remoteVideo.srcObject = e.streams[0]})
+    // peerConnection.addEventListener('track', e => {remoteVideo.srcObject = e.streams[0]})
 }
 
 function handleAnswer(answer) { 
