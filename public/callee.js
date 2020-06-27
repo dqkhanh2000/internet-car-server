@@ -62,7 +62,7 @@ async function call(){
 async function handleOffer(offer) {   
     await peerConnection.setRemoteDescription(new RTCSessionDescription(offer))
     localStream = await navigator.mediaDevices.getUserMedia(constraints)   
-    localVideo.srcObject = localStream
+    // localVideo.srcObject = localStream
     localStream.getTracks().forEach(track => {
         peerConnection.addTrack(track, localStream)
     })
