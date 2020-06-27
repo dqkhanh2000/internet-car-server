@@ -56,7 +56,6 @@ function handleAnswer(answer) {
     peerConnection.onicecandidate = function (event) {
         if (event.candidate) {
             socket.emit('rtc', { "type": "candidate", "data": event.candidate })
-            stopBothVideoAndAudio(localStream)
         }
     }
     if(isFirst){
