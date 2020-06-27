@@ -4,7 +4,12 @@ const configuration = {
         offerToReceiveAudio: true,
         offerToReceiveVideo: true
     },
-    iceServers: [{ urls: 'stun:stun.l.google.com:19302' }, { urls: 'stun:global.stun.twilio.com:3478?transport=udp' }]
+    iceServers: [{ urls: 'stun:stun.l.google.com:19302' }, 
+    iceServers: [{ urls: 'stun:stun.l.google.com:19302' }, {
+        'urls': 'turn:numb.viagenie.ca',
+        'credential': 'khanh1920',
+        'username': 'reycs2000@gmail.com'
+    }]
 }
 const constraints = {
     'video': {
