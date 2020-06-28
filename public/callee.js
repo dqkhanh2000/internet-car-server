@@ -1,7 +1,7 @@
 const socket = io()
 const configuration = {
     configuration: {
-        offerToReceiveAudio: false,
+        offerToReceiveAudio: true,
         offerToReceiveVideo: true
     },
     iceServers: [{ urls: 'stun:stun.l.google.com:19302' }, {
