@@ -52,7 +52,7 @@ socket.on('rtc', (data) => {
             break;
 
         case "leave":
-            location.reload()
+            // location.reload()
             break;
 
         default:
