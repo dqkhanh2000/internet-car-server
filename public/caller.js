@@ -3,7 +3,7 @@ let isFirst = true
 const configuration = {
     configuration: {
         offerToReceiveAudio: true,
-        offerToReceiveVideo: false
+        offerToReceiveVideo: true
     },
     iceServers: [{ urls: 'stun:stun.l.google.com:19302' }, {
         'urls': 'turn:numb.viagenie.ca',
