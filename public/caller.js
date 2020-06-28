@@ -3,7 +3,7 @@ let isFirst = true
 const configuration = {
     configuration: {
         offerToReceiveAudio: true,
-        offerToReceiveVideo: true
+        offerToReceiveVideo: false
     },
     iceServers: [{ urls: 'stun:stun.l.google.com:19302' }, {
         'urls': 'turn:numb.viagenie.ca',
@@ -17,7 +17,7 @@ const constraints = {
         "width": 640,
         "height": 480
     },
-    'audio': true
+    'audio': false
 }
 const peerConnection = new RTCPeerConnection(configuration)
 let localStream = null

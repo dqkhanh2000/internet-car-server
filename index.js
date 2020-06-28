@@ -34,6 +34,7 @@ io.on('connection', (socket) => {
     console.log('a user connected');
     socket.on('disconnect', () => {
         console.log('user disconnected');
+        getUser(socket).other.socket.emit("rtc", { "type": "leave"})
     });
     socket.on('name', data =>{
         users.push({
@@ -69,6 +70,7 @@ io.on('connection', (socket) => {
                 break;
     
             case "leave":
+                getUser(socket).other.socket.emit("rtc", { "type": "leave"})
                 break;
     
             default:
