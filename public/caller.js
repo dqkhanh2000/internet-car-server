@@ -17,7 +17,7 @@ const constraints = {
         "width": 640,
         "height": 480
     },
-    'audio': false
+    'audio': true
 }
 const peerConnection = new RTCPeerConnection(configuration)
 let localStream = null
