@@ -11,11 +11,21 @@ const configuration = {
     }]
 }
 const constraints = {
-    'video': {
-        "width": 640,
-        "height": 480
-    },
+    video: {
+        width: {
+          min: 1280,
+          ideal: 1920,
+          max: 2560,
+        },
+        height: {
+          min: 720,
+          ideal: 1080,
+          max: 1440
+        },
+        facingMode: 'user'
+      },
     'audio': true
+
 }
 const peerConnection = new RTCPeerConnection(configuration)
 let localStream = null
