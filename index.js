@@ -34,7 +34,10 @@ io.on('connection', (socket) => {
     console.log('a user connected');
     socket.on('disconnect', () => {
         console.log('user disconnected');
-        getUser(socket).other.socket.emit("rtc", { "type": "leave"})
+        try{
+            getUser(socket).other.socket.emit("rtc", { "type": "leave"})
+        }
+        catch (err) {console.error(err)}
     });
     socket.on('name', data =>{
         users.push({

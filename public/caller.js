@@ -6,9 +6,9 @@ const configuration = {
         offerToReceiveVideo: false
     },
     iceServers: [{ urls: 'stun:stun.l.google.com:19302' }, {
-        'urls': 'turn:numb.viagenie.ca',
-        'credential': 'khanh1920',
-        'username': 'reycs2000@gmail.com'
+        url: 'turn:relay.backups.cz',
+        credential: 'webrtc',
+        username: 'webrtc'
     }]
 }
 const remoteVideo = document.getElementById("remote-video")
