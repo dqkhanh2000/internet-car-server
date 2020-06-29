@@ -12,16 +12,8 @@ const configuration = {
 }
 const constraints = {
     video: {
-        width: {
-          min: 640,
-          ideal: 720,
-          max: 720,
-        },
-        height: {
-          min: 480,
-          ideal: 640,
-          max: 640
-        },
+        width: 720,
+        height:360,
         facingMode: 'environment'
       },
     'audio': true
