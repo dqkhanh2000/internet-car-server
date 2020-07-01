@@ -6,11 +6,26 @@
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>   
         <script src="/socket.io/socket.io.js"></script>
+        <style>
+            @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+                html {
+                  transform: rotate(-90deg);
+                  transform-origin: left top;
+                  width: 100vh;
+                  height: 100vw;
+                  overflow-x: hidden;
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+                }
+              }
+        </style>
 
     </head>
 
     <body>
-        <video src="" id="remote-video" style="width: 640px; height: 480px; transform: rotate(-90deg);" autoplay="true"></video>
+        <div class="video-container"><video src="" id="remote-video" width="1280" height="720" autoplay="true"></video></div>
+        
     </body>
 
 
