@@ -7,24 +7,25 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>   
         <script src="/socket.io/socket.io.js"></script>
         <style>
-            @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-                html {
-                  transform: rotate(-90deg);
-                  transform-origin: left top;
-                  width: 100vh;
-                  height: 100vw;
-                  overflow-x: hidden;
-                  position: absolute;
-                  top: 100%;
-                  left: 0;
-                }
-              }
+            html, body, video{
+                position: relative;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }
+            video{
+                position: absolute;
+                left: 0;
+                top: 0;
+                transform: rotate(-90deg);
+                object-fit: cover;
+            }
         </style>
 
     </head>
 
     <body>
-        <div class="video-container"><video src="" id="remote-video" width="1280" height="720" autoplay="true"></video></div>
+        <video src="" id="remote-video" width="1280" height="720" autoplay="true"></video>
         
     </body>
 
