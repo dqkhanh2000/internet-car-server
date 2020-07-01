@@ -12,8 +12,8 @@ const configuration = {
 }
 const constraints = {
     video: {
-        width: 380,
-        height:720,
+        width: 720,
+        height:380,
         facingMode: 'environment'
       },
     'audio': true
